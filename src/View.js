@@ -36,14 +36,28 @@ export default class View extends Component {
           </div>
         </section>
         <section className="section">
-          <h1 className="title is-spaced">{this.state.title}</h1>
-          <h3 className="subtitle"><i className="fa fa-clock-o"></i> {this.state.time}</h3>
+          <h2 className="title is-2">{this.state.title}</h2>
+          <h4 className="subtitle is-4"><i className="fa fa-clock-o"></i> {this.state.time}</h4>
           <p>{this.state.details}</p>
         </section>
         <section className="section">
-          {this.state.people.map((person, index) =>
-            <div className="box" key={index}>{person.name}</div>
-          )}
+          <h3 className="subtitle is-3">People</h3>
+          <table className="table is-fullwidth is-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Coming</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.people.map((person, index) =>
+                <tr key={index}>
+                  <td>{person.name}</td>
+                  <td>Yes</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
           <div className="field has-addons">
             <div className="control">
               <input className="input" type="text" placeholder="John Doe"
