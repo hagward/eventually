@@ -37,13 +37,13 @@ export default class View extends React.PureComponent {
 
         {this.state.details &&
           <section className="section">
-            <h2 class="subtitle">Details</h2>
+            <h2 className="subtitle">Details</h2>
             <p>{this.state.details}</p>
           </section>
         }
 
         <section className="section">
-          <h2 class="subtitle">People</h2>
+          <h2 className="subtitle">People</h2>
           <table className="table is-fullwidth is-striped">
             <thead>
               <tr>
