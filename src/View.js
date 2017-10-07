@@ -29,19 +29,15 @@ export default class View extends React.PureComponent {
         <section className="hero is-primary">
           <div className="hero-body">
             <div className="container">
-              <h1 className="title">
-                View event
-              </h1>
+              <h1 className="title">{this.state.title}</h1>
+              <h2 className="subtitle"><i className="fa fa-clock-o"></i> {this.state.time}</h2>
             </div>
           </div>
         </section>
         <section className="section">
-          <h2 className="title is-2">{this.state.title}</h2>
-          <h4 className="subtitle is-4"><i className="fa fa-clock-o"></i> {this.state.time}</h4>
-          <p>{this.state.details}</p>
+          {this.state.details}
         </section>
         <section className="section">
-          <h3 className="subtitle is-3">People</h3>
           <table className="table is-fullwidth is-striped">
             <thead>
               <tr>
