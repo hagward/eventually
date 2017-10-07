@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 
-export default class Create extends Component {
+class Create extends Component {
 
   constructor() {
     super();
@@ -73,6 +74,11 @@ export default class Create extends Component {
       body: JSON.stringify(body)
     })
     .then(response => response.json())
-    .then(json => console.log(json));
+    .then(json => {
+      console.log(json);
+      this.props.history.push('/' + json.id);
+    });
   }
 }
+
+export default withRouter(Create);
