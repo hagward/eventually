@@ -8,6 +8,9 @@ export default class App extends React.PureComponent {
     return (
       <Router>
         <div>
+          <nav className="navbar">
+            <a className="navbar-item is-size-4" href="/">eventually</a>
+          </nav>
           <Route exact path="/" component={Create} />
           <Route path="/:id" component={View} />
         </div>
