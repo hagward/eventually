@@ -64,7 +64,7 @@ class Create extends React.PureComponent {
       details: this.details.value
     };
 
-    fetch('http://localhost:12345/api/event', {
+    fetch('http://192.168.0.8:12345/api/event', {
       method: 'POST',
       mode: 'cors',
       headers: {

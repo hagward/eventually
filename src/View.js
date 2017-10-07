@@ -15,7 +15,7 @@ export default class View extends React.PureComponent {
   }
 
   componentDidMount() {
-    fetch('http://localhost:12345/api/event/' + this.props.match.params.id, {
+    fetch('http://192.168.0.8:12345/api/event/' + this.props.match.params.id, {
       method: 'GET',
       mode: 'cors',
     })
@@ -73,7 +73,7 @@ export default class View extends React.PureComponent {
       name: this.name.value
     };
 
-    fetch('http://localhost:12345/api/event/' + this.props.match.params.id + '/person', {
+    fetch('http://192.168.0.8:12345/api/event/' + this.props.match.params.id + '/person', {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -87,7 +87,7 @@ export default class View extends React.PureComponent {
       console.log(json);
       this.setState(prevState => ({
         people: [...prevState.people, json]
-      }));
+      }), () => this.name.value = '');
     });
   }
 }
