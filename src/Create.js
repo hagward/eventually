@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router';
 
-class Create extends Component {
+class Create extends React.PureComponent {
 
   constructor() {
     super();
