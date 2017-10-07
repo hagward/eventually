@@ -22,7 +22,7 @@ class Create extends Component {
           </div>
         </section>
         <section className="section">
-          <form className="container" ref={form => { this.form = form; }}>
+          <form className="container">
             <div className="field">
               <label className="label">Title</label>
               <div className="control">
