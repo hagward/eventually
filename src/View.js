@@ -34,10 +34,16 @@ export default class View extends React.PureComponent {
             </div>
           </div>
         </section>
+
+        {this.state.details &&
+          <section className="section">
+            <h2 class="subtitle">Details</h2>
+            <p>{this.state.details}</p>
+          </section>
+        }
+
         <section className="section">
-          {this.state.details}
-        </section>
-        <section className="section">
+          <h2 class="subtitle">People</h2>
           <table className="table is-fullwidth is-striped">
             <thead>
               <tr>
@@ -60,7 +66,7 @@ export default class View extends React.PureComponent {
                 ref={name => { this.name = name; }}/>
             </div>
             <div className="control">
-              <button className="button is-primary" onClick={this.handleAddPerson}>Add</button>
+              <button className="button is-primary" onClick={this.handleAddPerson}>I'm coming</button>
             </div>
           </div>
         </section>
