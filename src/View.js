@@ -38,17 +38,20 @@ export default class View extends React.PureComponent {
                 <div className="container">
                   <div className="field has-addons">
                     <p className="control">
-                      <button className={'button is-primary is-inverted' + (this.state.status !== 'yes' ? ' is-outlined' : '')} onClick={() => this.handleReply('yes')}>
+                      <button className={'button is-primary is-inverted' + (this.state.status !== 'yes' ? ' is-outlined' : '')}
+                        onClick={() => this.handleReply('yes')}>
                         Going
                       </button>
                     </p>
                     <p className="control">
-                      <button className={'button is-primary is-inverted' + (this.state.status !== 'no' ? ' is-outlined' : '')} onClick={() => this.handleReply('no')}>
+                      <button className={'button is-primary is-inverted' + (this.state.status !== 'no' ? ' is-outlined' : '')}
+                        onClick={() => this.handleReply('no')}>
                         Not going
                       </button>
                     </p>
                     <p className="control">
-                      <button className={'button is-primary is-inverted' + (this.state.status !== 'maybe' ? ' is-outlined' : '')} onClick={() => this.handleReply('maybe')}>
+                      <button className={'button is-primary is-inverted' + (this.state.status !== 'maybe' ? ' is-outlined' : '')}
+                        onClick={() => this.handleReply('maybe')}>
                         Maybe going
                       </button>
                     </p>
@@ -68,36 +71,47 @@ export default class View extends React.PureComponent {
         }
 
         <section className="section">
-          <h2 className="subtitle">People</h2>
+          <h2 className="subtitle">Invites</h2>
+
           <table className="table is-fullwidth is-striped">
             <thead>
               <tr>
-                <th>Name</th>
                 <th>Email</th>
                 <th>Status</th>
-                <th>Invite ID</th>
+                {this.state.type === 'event' &&
+                  <th>Invite</th>
+                }
               </tr>
             </thead>
             <tbody>
               {this.state.invites.map((invite, index) =>
                 <tr key={index}>
-                  <td>{invite.name}</td>
                   <td>{invite.email}</td>
-                  <td>{invite.status}</td>
-                  <td>{invite.inviteId}</td>
+                  <td>
+                    {invite.status === 'yes' && <span className="tag is-success">Going</span>}
+                    {invite.status === 'no' && <span className="tag is-danger">Not going</span>}
+                    {invite.status === 'maybe' && <span className="tag is-warning">Maybe going</span>}
+                    {invite.status === 'unanswered' && <span className="tag is-light">Unanswered</span>}
+                  </td>
+                  {this.state.type === 'event' &&
+                    <td><a href={'http://192.168.0.8:3000/' + invite.inviteId}>Share</a></td>
+                  }
                 </tr>
               )}
             </tbody>
           </table>
 
           {this.state.type === 'event' &&
-            <div className="field is-grouped is-grouped-centered">
+            <div className="field has-addons">
               <div className="control">
-                <input className="input" type="text" placeholder="example@email.com"
+                <input className="input is-primary" type="text" placeholder="example@email.com"
                   ref={email => { this.email = email; }}/>
               </div>
               <div className="control">
-                <button className="button is-primary" onClick={this.handleInvite}>Send invite</button>
+                <button className="button is-primary"
+                  onClick={this.handleInvite}>
+                  Create invite
+                </button>
               </div>
             </div>
           }
